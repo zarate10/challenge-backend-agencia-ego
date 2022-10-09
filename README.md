@@ -35,12 +35,12 @@ Se pueden agregar características ingresando al panel de Django (/admin).
 * User: adm 
 * Pw: 123
 
-[caracteristicas](https://i.imgur.com/cPpDUwY.png)
+![caracteristicas](https://i.imgur.com/cPpDUwY.png)
 
 ### Ficha de los vehículos - destacados
 
 Se pueden agregar destacados ingresando al panel de Django (/admin). 
-[destacados](https://i.imgur.com/Zd4JBsR.png)
+![destacados](https://i.imgur.com/Zd4JBsR.png)
 
 
 ## Tecnologías utilizadas
