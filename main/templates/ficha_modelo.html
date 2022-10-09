@@ -1,0 +1,43 @@
+{% extends 'layout/base.html' %}
+{% block body %}
+    <section class="wrapper-ficha">
+        <div class="left">
+            <img src="./../../media/{{ db_car.image }}" alt="">
+        </div>
+        <div class="right">
+            <div class="name-car">{{ db_car.name }}</div>
+            <div class="title">{{ db_car.title }}</div>
+            <div class="description">{{ db_car.description }}</div>
+        </div>
+    </section>
+
+    <section class="box-caracteristicas">
+        {% for caract in caracteristicas %}
+            <div class="box-data">
+                <div class="box-img">
+                    <img src="{{ caract.image_url }}">
+                </div>
+                <div class="box-info">
+                    <div class="title">{{ caract.title }}</div>
+                    <div class="info">{{ caract.description }}</div>
+                </div>
+            </div>
+        {% endfor %}
+    </section>
+
+    <section class="caracteristicas-dos">
+        {% for destacado in destacados %}
+            <div class="line">
+                <div class="right">
+                    <img src="{{ destacado.image_url }}">
+                </div>
+                <div class="left">
+                    <div class="title">{{ destacado.title }}</div>
+                    <div class="description">
+                        {{ destacado.description }}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </section>
+{% endblock %}

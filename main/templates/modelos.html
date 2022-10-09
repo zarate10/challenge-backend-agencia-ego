@@ -1,0 +1,63 @@
+{% extends 'layout/base.html' %}
+{% block body %}
+
+    <h1>Descubrí todos los modelos</h1>
+
+    <div class="box-models">
+        <div class="header-filter">
+            
+            <div class="category-filter">
+                <button>Filtrar por <i class="fa-solid fa-angle-down"></i></button>
+                <div class="filter-options">
+                    <ul>
+                        <li><a href="{% url 'modelos' %}">Todos</a></li>
+                        <li><a href="{% url 'filtro_autos' 1 %}">Autos</a></li>
+                        <li><a href="{% url 'filtro_autos' 2 %}">Pickups y Comerciales</a></li>
+                        <li><a href="{% url 'filtro_autos' 3 %}">SUVs y Crossovers</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="order-by">
+                <button>Ordenar por <i class="fa-solid fa-angle-down"></i></button>
+                <div class="box-options">
+                    <ul>
+                        <li><a href="">Nada</a></li>
+                        <li><a href="menor_precio">De <b>menor</b> a <b>mayor</b> precio</a></li>
+                        <li><a href="mayor_precio">De <b>mayor</b> a <b>menor</b> precio</a></li>
+                        <li><a href="mas_viejo">Más <b>nuevo</b> primero</a></li>
+                        <li><a href="mas_nuevo">Más <b>viejo</b> primero</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <div class="models">
+
+            {% for m in modelos %}
+
+                <div class="wrapper-model">
+
+                    <div class="title-model">{{ m.name }}</div>
+                    <div class="price-and-year">{{ m.year }} | $ {{ m.price }}</div>
+
+                    <div class="img-model-box">
+                        <img src="./../../media/{{ m.image }}" width="100"> 
+                    </div>
+             
+                    <div class="buttons-box">
+                        {% if user.is_authenticated %}
+                            <div class="btn-admin-box">
+                                <a href="{% url 'delete_car' m.id %}"><button class="btn-adm" style="background: rgb(211, 11, 11)">Borrar</button></a>
+                                <a href="{% url 'edit_car' m.id %}"><button class="btn-adm">Editar</button></a>
+                            </div>
+                        {% endif %}
+                        <a href="{% url 'ficha' name_car=m.name %}"><button class="view-model">Ver Modelo</button></a>
+                    </div>
+                </div>
+
+        
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

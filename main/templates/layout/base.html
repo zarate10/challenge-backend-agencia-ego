@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ name }} - Challenge Backend EGO</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="{% static 'img/logo_ego.png' %}" alt="">
+            </div>
+            <ul>
+                <li><a href="{% url 'modelos' %}" class="activate">Modelos</a></li>
+                <!-- <li><a href="">Ficha de modelo</a></li> -->
+            </ul>
+            <a class="menu-togle" id="btn-toggle-menu">
+                <p id="menu-txt">Menú</p>
+                <i class="fa-solid fa-bars" id="icon-menu"></i>
+                <!-- <i class="fa-solid fa-x"></i> -->
+            </a>
+        </nav>
+    </header>
+
+    <div class="menu-bg">
+        <div class="box-right">
+            <div class="box-links">
+                <ul>
+                    {% if not user.is_authenticated %}
+                        <li><a href="{% url 'login' %}">Ingresar</a></li>
+                    {% else %}
+                        <li><a href="{% url 'add_car' %}">Agregar vehículo</a></li>
+                        <li><a href="{% url 'desloguear' %}">Cerrar sesión</a></li>
+                    {% endif %}
+                </ul>
+                <ul>
+                    <li><a href="{% url 'modelos' %}">Modelos</a></li>
+                    <li><a href="{% url 'modelos' %}">Servicios y Accesorios</a></li>
+                    <li><a href="{% url 'modelos' %}">Financiación</a></li>
+                    <li><a href="{% url 'modelos' %}">Reviews y Comunidad</a></li>
+                </ul>
+                <ul>
+                    <li><a href="{% url 'modelos' %}">Toyota Mobility Service</a></li>
+                    <li><a href="{% url 'modelos' %}">Toyota Gazoo Racing</a></li>
+                    <li><a href="{% url 'modelos' %}">Toyota Híbridos</a></li>
+                </ul>
+                <ul>
+                    <li><a href="{% url 'modelos' %}">Concesionarios</a></li>
+                    <li><a href="{% url 'modelos' %}">Test Drive</a></li>
+                    <li><a href="{% url 'modelos' %}">Contacto</a></li>
+                </ul>
+                <ul style="margin-bottom: 200px">
+                    <li><a href="{% url 'modelos' %}">Actividades</a></li>
+                    <li><a href="{% url 'modelos' %}">Servicios al Cliente</a></li>
+                    <li><a href="{% url 'modelos' %}">Ventas Especiales</a></li>
+                    <li><a href="{% url 'modelos' %}">Innovación</a></li>
+                    <li><a href="{% url 'modelos' %}">Prensa</a></li>
+                    <li><a href="{% url 'modelos' %}">Acerca de...</a></li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+    
+    <div class="wrapper-gral">
+        {% block body %}
+        {% endblock %}
+    </div>
+    <script>        
+    window.data = {
+        name: '{{ name }}',
+        category_id: '{{ category_id }}'
+    }
+    </script>
+    <script src="{% static 'js/app.js' %}"></script>
+</body>
+</html>

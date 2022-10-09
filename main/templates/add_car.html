@@ -1,0 +1,9 @@
+{% extends 'layout/base.html' %}
+{% block body %}
+    <h2>{{name}}</h2>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar</button>
+    </form>
+{% endblock %}
