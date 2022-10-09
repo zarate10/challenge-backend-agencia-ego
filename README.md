@@ -3,22 +3,22 @@ Sitio basado en Django.
 
 ## Para correr el proyecto
 ```
-1. Clonar repositorio. 
+Clonar repositorio. 
 ```
 ```
-2. py -m pip install virtualenv
+py -m pip install virtualenv
 ```
 ```
-3. py -m virtualenv venv
+py -m virtualenv venv
 ```
 ```
-4. Activar entorno virtual (./venv/scripts/activate)
+Activar entorno virtual (./venv/scripts/activate)
 ```
 ```
-5. py -m pip install -r requirements.txt 
+py -m pip install -r requirements.txt 
 ```
 ```
-6. py manage.py runserver 
+py manage.py runserver 
 ```
 
 ## Tecnologías utilizadas
