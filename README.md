@@ -52,6 +52,6 @@ Se pueden agregar destacados ingresando al panel de Django (/admin).
 
 ## Imágenes 
 
-[1](https://i.imgur.com/stcGzMT.png)
-[2](https://i.imgur.com/yKAatfC.png)
-[3](https://i.imgur.com/ha9Iiio.png)
+![1](https://i.imgur.com/stcGzMT.png)
+![2](https://i.imgur.com/yKAatfC.png)
+![3](https://i.imgur.com/ha9Iiio.png)
