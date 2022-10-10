@@ -42,7 +42,11 @@ def add_car(req):
         
     if req.method == 'POST': 
         try: 
-            Car.objects.create(
+
+            if Car.objects.filter(name=req.POST['name']): 
+                raise Exception
+  
+            car = Car.objects.create(
                 name=req.POST['name'], 
                 title=req.POST['title'],
                 category=req.POST['category'], 
@@ -50,14 +54,23 @@ def add_car(req):
                 year=req.POST['year'], 
                 price=req.POST['price'], 
                 image=req.FILES['image']
-            ).save()
+            )
+
+            car.save()
+
         except: 
-            return HttpResponse('No se pudo guardar el vehículo')
+
+            return render(req, 'add_car.html', {
+                "name": "Agregar vehículo",
+                "error": "El vehículo no se puede agregar o ya existe uno con el mismo nombre",
+                "form": CreateNewCar(req.POST)
+            })
+
         else: 
             return redirect('modelos')
  
     return render(req, 'add_car.html', {
-        "name": "Agregar vehículo", 
+        "name": "Agregar vehículo",
         "form": CreateNewCar
     })
 
